@@ -1,0 +1,12 @@
+﻿global using AppSetting.Helpers;
+global using AppSetting.Models;
+global using AppSetting.Services;
+global using AppSetting.Services.PlatformsCompilation;
+global using AppSetting.Themes;
+global using AppSetting.ViewModels;
+global using AppSetting.Views.Pages;
+global using System.Collections.ObjectModel;
+global using System.ComponentModel;
+global using System.Globalization;
+global using System.Runtime.CompilerServices;
+global using System.Text;

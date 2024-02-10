@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppSetting.Themes.LightTheme">
+
+    <!--Colors-->
+    <Color x:Key="ScreenColor">white</Color>
+    <Color x:Key="ScreenTextColor">#333333</Color>
+    <Color x:Key="HeaderBarFillColor">White</Color>
+    <Color x:Key="HeaderBarFillTextColor">#333333</Color>
+    <Color x:Key="FooterBarFillColor">White</Color>
+    <Color x:Key="FooterBarFillTextColor">#333333</Color>
+    <Color x:Key="NotifBarFillColor">#333333</Color>
+    <Color x:Key="NotifBarFillTextColor">White</Color>
+    <Color x:Key="FillColor">#333333</Color>
+    <Color x:Key="FillTextColor">White</Color>
+    <Color x:Key="BorderColor">#333333</Color>
+    <Color x:Key="SwitchOnColor">Red</Color>
+    <Color x:Key="SwitchThumbColor">#333333</Color>
+    <Color x:Key="RefreshColor">#333333</Color>
+
+    <!--Images-->
+    <x:String x:Key="AboutApp">aboutappblack.png</x:String>
+    <x:String x:Key="GoBack">backthickarrowblack.png</x:String>
+    <x:String x:Key="AppSetting">settingblack.png</x:String>
+    <x:String x:Key="NotifBell">bellwhite.png</x:String>
+
+    <!--Setting Images-->
+    <x:String x:Key="Setting">settingblack.png</x:String>
+    <x:String x:Key="Theme">themeblack.png</x:String>
+    <x:String x:Key="Sound">soundblack.png</x:String>
+    <x:String x:Key="Audio">audioblack.png</x:String>
+    <x:String x:Key="Duration">clockblack.png</x:String>
+    <x:String x:Key="Reset">resetblack.png</x:String>
+
+</ResourceDictionary>

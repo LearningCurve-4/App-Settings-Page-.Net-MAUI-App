@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Border
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppSetting.Views.ReuseableViews.NotificationBarView"
+    Stroke="{DynamicResource NotifBarFillColor}"
+    StrokeShape="RoundRectangle 20"
+    BackgroundColor="{DynamicResource NotifBarFillColor}"
+    HeightRequest="40"
+    Padding="10,0"
+    IsVisible="{Binding IsNotifVisible}">
+
+    <Grid
+        RowDefinitions="*"
+        ColumnDefinitions="30,*"
+        ColumnSpacing="5">
+
+        <Image 
+            Grid.Row="0" 
+            Grid.Column="0" 
+            Source="{DynamicResource NotifBell}" />
+
+        <Label 
+            Grid.Row="0" 
+            Grid.Column="1" 
+            Text="{Binding NotifText}"
+            TextColor="{DynamicResource NotifBarFillTextColor}"
+            MaxLines="2"
+            LineBreakMode="WordWrap" />
+    </Grid>
+
+    <Border.GestureRecognizers>
+        <TapGestureRecognizer 
+            Command="{Binding HideNotificationCommand, Mode=OneTime}" />
+    </Border.GestureRecognizers>
+</Border>

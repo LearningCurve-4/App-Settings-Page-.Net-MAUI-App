@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppSetting.Views.Pages.AppSettingPage"
+    xmlns:s="clr-namespace:AppSetting.Services"
+    xmlns:rv="clr-namespace:AppSetting.Views.ReuseableViews"
+    xmlns:vm="clr-namespace:AppSetting.ViewModels"
+    x:DataType="vm:AppSettingViewModel"
+    IsEnabled="{Binding IsNotBusy}">
+
+    <ContentPage.BindingContext>
+        <vm:AppSettingViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid
+        RowDefinitions="50,*"
+        ColumnDefinitions="*">
+
+        <!--Header-->
+        <Grid
+            Grid.Row="0"
+            Grid.Column="0"
+            RowDefinitions="*"
+            ColumnDefinitions="35,*"
+            ColumnSpacing="10"
+            Padding="10,0"
+            BackgroundColor="{DynamicResource HeaderBarFillColor}">
+
+            <rv:BackImageView 
+                Grid.Row="0"
+                Grid.Column="0" />
+
+            <Label 
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="Settings"
+                TextColor="{DynamicResource HeaderBarFillTextColor}"
+                FontSize="22" />
+
+            <rv:BusyIndicatorView
+                Grid.Row="0" 
+                Grid.Column="0"
+                Grid.ColumnSpan="2" />
+
+            <rv:NotificationBarView
+                Grid.Row="0" 
+                Grid.Column="0"
+                Grid.ColumnSpan="2" />
+        </Grid>
+
+        <!--Body-->
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            RowDefinitions="150,*"
+            ColumnDefinitions="*"
+            Padding="10">
+
+            <HorizontalStackLayout
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+
+                <Image 
+                    Source="{DynamicResource Setting}"
+                    HeightRequest="50"
+                    WidthRequest="50" />
+
+                <Label
+                    Text="App Setting"
+                    TextColor="{DynamicResource ScreenTextColor}"
+                    FontSize="40"
+                    HeightRequest="180"
+                    HorizontalTextAlignment="Center" />
+            </HorizontalStackLayout>
+
+            <ScrollView
+                Grid.Row="1"
+                Grid.Column="0"
+                Orientation="Vertical"
+                VerticalScrollBarVisibility="Never">
+
+                <Grid
+                    RowDefinitions="50,170,50" 
+                    ColumnDefinitions="*"
+                    RowSpacing="10">
+
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HeightRequest="50"
+                        Stroke="{DynamicResource BorderColor}"
+                        BackgroundColor="{DynamicResource ScreenColor}"
+                        Padding="5">
+
+                        <Grid 
+                            RowDefinitions="40"
+                            ColumnDefinitions="40,*,80">
+
+                            <Image 
+                                Grid.Row="0" 
+                                Grid.Column="0"
+                                Source="{DynamicResource Theme}"
+                                HeightRequest="25"
+                                WidthRequest="25" />
+
+                            <Label 
+                                Grid.Row="0" 
+                                Grid.Column="1" 
+                                Text="Select theme."
+                                TextColor="{DynamicResource ScreenTextColor}" />
+
+                            <Picker 
+                                Grid.Row="0" 
+                                Grid.Column="2"
+                                TextColor="{DynamicResource ScreenTextColor}"
+                                ItemsSource="{x:Static s:AppSettingService.AppThemeList}"
+                                SelectedItem="{Binding AppThemes}" />
+                        </Grid>
+                    </Border>
+
+                    <Border 
+                        Grid.Row="1" 
+                        Grid.Column="0"
+                        Stroke="{DynamicResource BorderColor}"
+                        BackgroundColor="{DynamicResource ScreenColor}"
+                        Padding="5">
+
+                        <VerticalStackLayout 
+                            CompressedLayout.IsHeadless="False">
+
+                            <Grid 
+                                RowDefinitions="50"
+                                ColumnDefinitions="40,*,80">
+
+                                <Image 
+                                    Grid.Row="0" 
+                                    Grid.Column="0"
+                                    Source="{DynamicResource Sound}"
+                                    HeightRequest="25"
+                                    WidthRequest="25" />
+
+                                <Label 
+                                    Grid.Row="0" 
+                                    Grid.Column="1" 
+                                    Text="Allow notification sound."
+                                    TextColor="{DynamicResource ScreenTextColor}" />
+
+                                <Switch 
+                                    Grid.Row="0" 
+                                    Grid.Column="2"
+                                    IsToggled="{Binding PlayNotifSound}" />
+                            </Grid>
+
+                            <BoxView 
+                                Margin="5,0"
+                                BackgroundColor="{DynamicResource BorderColor}" />
+
+                            <Grid 
+                                RowDefinitions="50"
+                                ColumnDefinitions="40,*,80">
+
+                                <Image 
+                                    Grid.Row="0" 
+                                    Grid.Column="0"
+                                    Source="{DynamicResource Audio}"
+                                    HeightRequest="25"
+                                    WidthRequest="25" />
+
+                                <Label 
+                                    Grid.Row="0" 
+                                    Grid.Column="1" 
+                                    Text="Select notification audio."
+                                    TextColor="{DynamicResource ScreenTextColor}" />
+
+                                <Picker 
+                                    Grid.Row="0" 
+                                    Grid.Column="2"
+                                    TextColor="{DynamicResource ScreenTextColor}"
+                                    SelectedItem="{Binding NotifAudioFile, Mode=TwoWay}" 
+                                    IsEnabled="{Binding PlayNotifSound}">
+
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>chimes</x:String>
+                                            <x:String>ding</x:String>
+                                            <x:String>notify</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </Grid>
+
+                            <BoxView 
+                                Margin="5,0"
+                                BackgroundColor="{DynamicResource BorderColor}" />
+
+                            <Grid 
+                                RowDefinitions="60"
+                                ColumnDefinitions="40,*,80">
+
+                                <Image 
+                                    Grid.Row="0" 
+                                    Grid.Column="0"
+                                    Source="{DynamicResource Duration}"
+                                    HeightRequest="25"
+                                    WidthRequest="25" />
+
+                                <Label 
+                                    Grid.Row="0" 
+                                    Grid.Column="1" 
+                                    TextColor="{DynamicResource ScreenTextColor}">
+
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Select notification display duration.&#10;" />
+                                            <Span Text="Duration indicates here is in seconds." FontSize="11" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <Picker 
+                                    Grid.Row="0" 
+                                    Grid.Column="2"
+                                    TextColor="{DynamicResource ScreenTextColor}"
+                                    SelectedItem="{Binding NotifDisplayDuration, Mode=TwoWay}" 
+                                    IsEnabled="{Binding PlayNotifSound}">
+
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>2</x:String>
+                                            <x:String>3</x:String>
+                                            <x:String>4</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        HeightRequest="50"
+                        Stroke="{DynamicResource BorderColor}"
+                        BackgroundColor="{DynamicResource ScreenColor}"
+                        Padding="5">
+
+                        <Grid 
+                            RowDefinitions="40"
+                            ColumnDefinitions="40,*">
+
+                            <Image 
+                                Grid.Row="0" 
+                                Grid.Column="0"
+                                Source="{DynamicResource Reset}"
+                                HeightRequest="25"
+                                WidthRequest="25" />
+
+                            <Label 
+                                Grid.Row="0" 
+                                Grid.Column="1" 
+                                Text="Reset app setting to default setting"
+                                TextColor="{DynamicResource ScreenTextColor}" />
+                        </Grid>
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding ResetCommand, Mode=OneTime}" />
+                        </Border.GestureRecognizers>
+                    </Border>
+                </Grid>
+            </ScrollView>
+        </Grid>
+        <!--Footer-->
+    </Grid>
+</ContentPage>

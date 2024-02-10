@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppSetting.Themes.OrangeTheme">
+
+    <!--Colors-->
+    <Color x:Key="ScreenColor">White</Color>
+    <Color x:Key="ScreenTextColor">#333333</Color>
+    <Color x:Key="HeaderBarFillColor">#FF8C00</Color>
+    <Color x:Key="HeaderBarFillTextColor">#333333</Color>
+    <Color x:Key="FooterBarFillColor">White</Color>
+    <Color x:Key="FooterBarFillTextColor">#333333</Color>
+    <Color x:Key="NotifBarFillColor">#FFF2CC</Color>
+    <Color x:Key="NotifBarFillTextColor">#FF8C00</Color>
+    <Color x:Key="FillColor">#FF8C00</Color>
+    <Color x:Key="FillTextColor">#333333</Color>
+    <Color x:Key="BorderColor">#FF8C00</Color>
+    <Color x:Key="SwitchOnColor">Red</Color>
+    <Color x:Key="SwitchThumbColor">#FF8C00</Color>
+    <Color x:Key="RefreshColor">#FF8C00</Color>
+
+    <!--Images-->
+    <x:String x:Key="AboutApp">aboutappblack.png</x:String>
+    <x:String x:Key="GoBack">backthickarrowblack.png</x:String>
+    <x:String x:Key="AppSetting">settingblack.png</x:String>
+    <x:String x:Key="NotifBell">bellorange.png</x:String>
+
+    <!--Setting Images-->
+    <x:String x:Key="Setting">settingorange.png</x:String>
+    <x:String x:Key="Theme">themeorange.png</x:String>
+    <x:String x:Key="Sound">soundorange.png</x:String>
+    <x:String x:Key="Audio">audioorange.png</x:String>
+    <x:String x:Key="Duration">clockorange.png</x:String>
+    <x:String x:Key="Reset">resetorange.png</x:String>
+
+</ResourceDictionary>

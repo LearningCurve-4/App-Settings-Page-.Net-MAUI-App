@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppSetting.Themes.PurpleTheme">
+
+    <!--Colors-->
+    <Color x:Key="ScreenColor">White</Color>
+    <Color x:Key="ScreenTextColor">#333333</Color>
+    <Color x:Key="HeaderBarFillColor">#7030A0</Color>
+    <Color x:Key="HeaderBarFillTextColor">White</Color>
+    <Color x:Key="FooterBarFillColor">White</Color>
+    <Color x:Key="FooterBarFillTextColor">#333333</Color>
+    <Color x:Key="NotifBarFillColor">Lavender</Color>
+    <Color x:Key="NotifBarFillTextColor">Purple</Color>
+    <Color x:Key="FillColor">#7030A0</Color>
+    <Color x:Key="FillTextColor">White</Color>
+    <Color x:Key="BorderColor">#7030A0</Color>
+    <Color x:Key="SwitchOnColor">Red</Color>
+    <Color x:Key="SwitchThumbColor">Purple</Color>
+    <Color x:Key="RefreshColor">Purple</Color>
+
+    <!--Images-->
+    <x:String x:Key="AboutApp">aboutappwhite.png</x:String>
+    <x:String x:Key="GoBack">backthickarrowwhite.png</x:String>
+    <x:String x:Key="AppSetting">settingwhite.png</x:String>
+    <x:String x:Key="NotifBell">bellpurple.png</x:String>
+
+    <!--Setting Images-->
+    <x:String x:Key="Setting">settingpurple.png</x:String>
+    <x:String x:Key="Theme">themepurple.png</x:String>
+    <x:String x:Key="Sound">soundpurple.png</x:String>
+    <x:String x:Key="Audio">audiopurple.png</x:String>
+    <x:String x:Key="Duration">clockpurple.png</x:String>
+    <x:String x:Key="Reset">resetpurple.png</x:String>
+
+</ResourceDictionary>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AppSetting.Views.Pages.HomePage"
+    xmlns:c="clr-namespace:AppSetting.Helpers.Converters"
+    xmlns:rv="clr-namespace:AppSetting.Views.ReuseableViews"
+    xmlns:vm="clr-namespace:AppSetting.ViewModels"
+    x:DataType="vm:HomeViewModel"
+    IsEnabled="{Binding IsNotBusy}">
+
+    <ContentPage.Resources>
+        <c:ToggleConverter x:Key="Toggle" />
+    </ContentPage.Resources>
+
+    <Grid
+        RowDefinitions="50,*"
+        ColumnDefinitions="*">
+
+        <!--Header-->
+        <Grid
+            Grid.Row="0"
+            Grid.Column="0"
+            RowDefinitions="*"
+            ColumnDefinitions="35,*,35"
+            ColumnSpacing="10"
+            Padding="10,0"
+            BackgroundColor="{DynamicResource HeaderBarFillColor}">
+
+            <Image  
+                Grid.Row="0"
+                Grid.Column="0"
+                Source="{DynamicResource AboutApp}">
+
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding GoToPageCommand, Mode=OneTime}" 
+                        CommandParameter="AboutAppPage" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Label 
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="Home"
+                TextColor="{DynamicResource HeaderBarFillTextColor}"
+                FontSize="22" />
+
+            <Image  
+                Grid.Row="0"
+                Grid.Column="2"
+                Source="{DynamicResource AppSetting}">
+
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding GoToPageCommand, Mode=OneTime}" 
+                        CommandParameter="AppSettingPage" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <rv:BusyIndicatorView
+                Grid.Row="0" 
+                Grid.Column="0"
+                Grid.ColumnSpan="3" />
+
+            <rv:NotificationBarView
+                Grid.Row="0" 
+                Grid.Column="0"
+                Grid.ColumnSpan="3" />
+        </Grid>
+
+        <!--Body-->
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            RowDefinitions="*"
+            ColumnDefinitions="*"
+            RowSpacing="10"
+            Padding="5">
+
+            <Border
+                Grid.Row="0"
+                Grid.Column="0"
+                WidthRequest="180"
+                HeightRequest="150"
+                BackgroundColor="{DynamicResource FillColor}">
+
+                <Grid
+                    RowDefinitions="*,40"
+                    ColumnDefinitions="*">
+
+                    <Image  
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Source="{Binding IsSignin, Converter={StaticResource Toggle}, ConverterParameter=Signin_Signout_S}"
+                        HeightRequest="100"
+                        WidthRequest="100" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="{Binding IsSignin, Converter={StaticResource Toggle}, ConverterParameter='Click to Sign out_Click to Sign in_T'}"
+                        TextColor="{DynamicResource FillTextColor}"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center" />
+                </Grid>
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding SigninCommand, Mode=OneTime}" />
+                </Border.GestureRecognizers>
+            </Border>
+        </Grid>
+
+        <!--Footer-->
+
+    </Grid>
+</ContentPage>
